@@ -1,0 +1,16 @@
+database:
+  connection: ${DATABASE_CONNECTION}
+
+jwt:
+  secret: ${JWT_SECRET}
+  expires_in: ${JWT_EXPIRATION_TIME}
+
+session:
+  secret: ${SESSION_SECRET}
+
+aws:
+  id: ${AWS_ID}
+  secret: ${AWS_SECRET}
+  s3:
+    base_url: ${ATTACHMENTS_BASE_URL}
+    bucket_name: ${ATTACHMENTS_BUCKET_NAME}

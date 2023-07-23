@@ -1,0 +1,9 @@
+database:
+  connection: postgresql://postgres:secret@postgres15:5432/social_postify
+
+aws:
+  id: ${AWS_ID}
+  secret: ${AWS_SECRET}
+  s3:
+    base_url: ${ATTACHMENTS_BASE_URL}
+    bucket_name: ${ATTACHMENTS_BUCKET_NAME}

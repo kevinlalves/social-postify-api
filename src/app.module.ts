@@ -6,6 +6,7 @@ import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
 import { AttachmentsModule } from './attachments/attachments.module';
 import { ConfigModule } from '@nestjs/config';
+import configuration from './config/setup-envs';
 
 @Module({
   imports: [
@@ -16,7 +17,7 @@ import { ConfigModule } from '@nestjs/config';
     AuthModule,
     AttachmentsModule,
     ConfigModule.forRoot({
-      envFilePath: `.env.development`,
+      load: configuration(),
       isGlobal: true,
     }),
   ],

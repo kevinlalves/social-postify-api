@@ -3,12 +3,12 @@ import { AppModule } from './app.module';
 import { PrismaService } from './prisma/prisma.service';
 import { ValidationPipe } from '@nestjs/common';
 import * as session from 'express-session';
-import { sessionConstants } from './utils';
 import { ConfigService } from '@nestjs/config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
+  console.error(process.env.NODE_ENV);
 
   app.enableCors();
   app.useGlobalPipes(
@@ -20,12 +20,12 @@ async function bootstrap() {
   );
   app.use(
     session({
-      name: sessionConstants.name,
-      secret: configService.get<string>('SESSION_SECRET'),
+      name: configService.get<string>('session.name'),
+      secret: configService.get<string>('session.secret'),
       resave: false,
       saveUninitialized: false,
       cookie: {
-        maxAge: sessionConstants.cookieAge,
+        maxAge: configService.get<number>('session.cookie_age'),
       },
     }),
   );

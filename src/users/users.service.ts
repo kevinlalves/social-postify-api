@@ -25,7 +25,7 @@ export class UsersService {
       email,
       password: passwordHash,
       avatar: {
-        create: { id: attachmentId, url: `${this.configService.get<string>('ATTACHMENT_BASE_URL')}/${attachmentId}` },
+        create: { id: attachmentId, url: `${this.configService.get<string>('aws.s3.base_url')}/${attachmentId}` },
       },
     });
 

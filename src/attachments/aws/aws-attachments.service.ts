@@ -11,8 +11,8 @@ export class AwsAttachmentsService implements AttachmentsService {
   constructor(private readonly configService: ConfigService) {
     this.s3 = new S3Client({
       credentials: {
-        accessKeyId: configService.get<string>('AWS_KEY_ID'),
-        secretAccessKey: configService.get<string>('AWS_KEY_SECRET'),
+        accessKeyId: configService.get<string>('aws.id'),
+        secretAccessKey: configService.get<string>('aws.secret'),
       },
       region: 'us-east-1',
     });
@@ -23,7 +23,7 @@ export class AwsAttachmentsService implements AttachmentsService {
       files.map(async (file) => {
         const id = crypto.randomUUID();
         const uploadParams = {
-          Bucket: 'social-postify-storage',
+          Bucket: this.configService.get<string>('aws.s3.bucket_name'),
           Key: id,
           Body: file.buffer,
         };

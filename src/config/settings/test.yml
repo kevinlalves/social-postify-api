@@ -1,0 +1,9 @@
+database:
+  connection: postgresql://postgres:secret@postgres15:5432/social_postify_test
+
+aws:
+  id: aws-test-id
+  secret: aws-test-secret
+  s3:
+    base_url: attachment-test-url
+    bucket_name: super-test-bucket

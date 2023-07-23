@@ -1,0 +1,8 @@
+jwt:
+  secret: jwt-dev-secret
+  expires_in: 7200
+
+session:
+  secret: session-dev-secret
+  name: _social_postify_session
+  cookie_age: 7200000

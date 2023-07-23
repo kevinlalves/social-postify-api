@@ -1,0 +1,1 @@
+DATABASE_URL=postgresql://postgres:secret@postgres15:5432/social_postify
